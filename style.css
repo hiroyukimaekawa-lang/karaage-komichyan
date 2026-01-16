@@ -1,0 +1,730 @@
+/* ============================================
+   リセット & ベース設定
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background: url('/images/concept-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #000000;
+    background-color: #FFFFFF;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   コンテナ設定
+   ============================================ */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   セクションタイトル
+   ============================================ */
+.section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #B54434;
+}
+
+/* ============================================
+   ファーストビュー
+   ============================================ */
+.first-view {
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2rem 20px;
+}
+
+.first-view-bg-image {
+    position: absolute;
+    inset: 0;
+    background: url('./img/food3.jpeg') center / cover no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .first-view-bg-image {
+        animation: slowZoom 20s ease-in-out infinite alternate;
+    }
+}
+
+.first-view-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+}
+
+.shop-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #B54434;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.shop-name-pc {
+    display: none;
+}
+
+.shop-name-sp {
+    display: inline-block;
+}
+
+@media (min-width: 769px) {
+    .shop-name-pc {
+        display: inline-block;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        line-height: 1.2;
+    }
+
+    .shop-name-sp {
+        display: none;
+    }
+}
+
+.sub-copy {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #000000;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+    display: inline-block;
+}
+
+.sub-copy-pc {
+    display: none;
+}
+
+.sub-copy-sp {
+    display: inline-block;
+}
+
+@media (min-width: 769px) {
+    .sub-copy-pc {
+        display: inline-block;
+    }
+
+    .sub-copy-sp {
+        display: none;
+    }
+}
+
+.sub-copy::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: #B54434;
+}
+
+.scroll-hint {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    color: #666;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* ============================================
+   コンセプト
+   ============================================ */
+.concept-section {
+    position: relative;
+    padding: 120px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .concept-section {
+        transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+    }
+}
+
+.concept-section:hover {
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(1.02);
+}
+
+.concept-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.concept-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 32px;
+    color: #ffffff;
+}
+
+.concept-catch {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+    line-height: 1.8;
+    color: #ffffff;
+}
+
+.concept-catch-pc {
+    display: none;
+}
+
+.concept-catch-sp {
+    display: block;
+}
+
+@media (min-width: 769px) {
+    .concept-catch-pc {
+        display: block;
+    }
+
+    .concept-catch-sp {
+        display: none;
+    }
+}
+
+.concept-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 2;
+    color: #ffffff;
+}
+
+.concept-text-pc {
+    display: none;
+}
+
+.concept-text-sp {
+    display: block;
+}
+
+.concept-text p {
+    margin-bottom: 1.5rem;
+}
+
+.concept-text p:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+    .concept-text-pc {
+        display: block;
+    }
+
+    .concept-text-sp {
+        display: none;
+    }
+}
+
+.concept-emphasis {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.concept-images-top {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.concept-image {
+    width: 280px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.concept-image.delay {
+    transition-delay: 0.3s;
+}
+
+.concept-image.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.concept-image-inline {
+    margin: 60px auto;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.concept-image-inline img {
+    width: 100%;
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.concept-image-inline.is-visible img {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.concept-bg-image {
+    position: absolute;
+    inset: 0;
+    /* background: url('./img/food3.jpeg') center / cover no-repeat; */
+    opacity: 0.15;
+    z-index: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .concept-bg-image {
+        animation: slowZoom 20s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
+
+/* ============================================
+   メニュー紹介
+   ============================================ */
+.menu {
+    padding: 5rem 0;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.menu .section-title {
+    color: #FFFFFF;
+}
+
+.menu .section-title::after {
+    background-color: #FFFFFF;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.menu-item {
+    padding: 2rem;
+    border: 2px solid #FFFFFF;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.menu-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.menu-desc {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.8;
+    color: #E0E0E0;
+}
+
+.menu-note {
+    text-align: center;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    color: #CCCCCC;
+    margin-top: 2rem;
+}
+
+/* ============================================
+   営業時間・店舗情報
+   ============================================ */
+.info {
+    padding: 5rem 0;
+    background-color: #FFFFFF;
+}
+
+.info-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.info-block {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 2px solid #B54434;
+    background-color: #FFF5F3;
+}
+
+.info-block:last-child {
+    margin-bottom: 0;
+}
+
+.info-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #B54434;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #B54434;
+    text-align: center;
+}
+
+.info-text {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 2;
+    text-align: center;
+}
+
+.info-text p {
+    margin-bottom: 0.5rem;
+}
+
+.info-text p:last-child {
+    margin-bottom: 0;
+}
+
+.info-note {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    color: #666;
+}
+
+.tel-link {
+    color: #B54434;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.tel-link:hover {
+    border-bottom-color: #B54434;
+}
+
+/* ============================================
+   予約案内
+   ============================================ */
+.reservation {
+    padding: 5rem 0;
+    background-color: #B54434;
+    color: #FFFFFF;
+}
+
+.reservation-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reservation-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.reservation-tel {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.tel-link-large {
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: 3px solid #FFFFFF;
+    padding-bottom: 0.25em;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.tel-link-large:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* ============================================
+   Instagram導線
+   ============================================ */
+.instagram {
+    padding: 4rem 0;
+    background-color: #FFFFFF;
+}
+
+.instagram-content {
+    text-align: center;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: #000000;
+    text-decoration: none;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    padding: 1rem 2rem;
+    border: 2px solid #000000;
+    transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.instagram-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.instagram-text {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   フッター
+   ============================================ */
+.footer {
+    padding: 4rem 0 2rem;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.footer-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-shop-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    color: #FFFFFF;
+}
+
+.footer-info {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 2;
+    margin-bottom: 2rem;
+}
+
+.footer-info p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-tel {
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: 1px solid #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.footer-tel:hover {
+    opacity: 0.7;
+}
+
+.copyright {
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    color: #999;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+/* ============================================
+   レスポンシブ調整
+   ============================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .first-view {
+        min-height: 90vh;
+    }
+
+    .menu,
+    .info,
+    .reservation,
+    .instagram {
+        padding: 3rem 0;
+    }
+
+    .concept-section {
+        padding: 80px 20px;
+    }
+
+    .concept-images-top {
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 60px;
+    }
+
+    .concept-image {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .concept-image-inline {
+        margin: 40px auto;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .menu-item {
+        padding: 1.5rem;
+    }
+
+    .info-block {
+        padding: 1.5rem;
+    }
+
+    .concept-text {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .section-title {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .first-view {
+        min-height: 85vh;
+    }
+
+    .menu,
+    .info,
+    .reservation,
+    .instagram {
+        padding: 2.5rem 0;
+    }
+
+    .concept-section {
+        padding: 60px 16px;
+    }
+
+    .concept-images-top {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .concept-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .concept-image-inline {
+        margin: 30px auto;
+    }
+
+    .instagram-link {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+}
