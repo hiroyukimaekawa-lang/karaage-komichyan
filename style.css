@@ -108,6 +108,9 @@ body {
 
 .shop-name-sp {
     display: inline-block;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    line-height: 1.2;
 }
 
 @media (min-width: 769px) {
@@ -141,6 +144,10 @@ body {
 
 .sub-copy-sp {
     display: inline-block;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    padding-bottom: 0;
+    padding-left: 1rem;
 }
 
 @media (min-width: 769px) {
@@ -164,6 +171,15 @@ body {
     background-color: #B54434;
 }
 
+.sub-copy-sp::after {
+    bottom: auto;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 100px;
+}
+
 .scroll-hint {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.875rem;
@@ -177,6 +193,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -184,9 +201,12 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(10px);
     }
@@ -359,6 +379,7 @@ body {
     from {
         transform: scale(1);
     }
+
     to {
         transform: scale(1.08);
     }
@@ -650,14 +671,17 @@ body {
     }
 
     .concept-images-top {
-        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
         gap: 16px;
         margin-bottom: 60px;
     }
 
     .concept-image {
-        width: 100%;
+        width: calc(50% - 8px);
         max-width: 280px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
     }
 
     .concept-image-inline {
@@ -708,13 +732,14 @@ body {
     }
 
     .concept-images-top {
-        flex-direction: column;
-        align-items: center;
+        /* flex-direction: column removes side-by-side so we keep default row */
         margin-bottom: 40px;
+        gap: 12px;
     }
 
     .concept-image {
-        width: 100%;
+        /* Maintain existing width logic from 768px media query or reset if needed */
+        width: calc(50% - 6px);
         max-width: 100%;
     }
 
